@@ -4,23 +4,25 @@ var expect = require('chai').expect;
 var User = require('../../server/models/user');
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
+var Joi = require('joi');
 var describe = lab.describe;
 var it = lab.it;
 var beforeEach = lab.beforeEach;
 
-require('../../server/index');
+var server = require('../../server/index');
 
 describe('User', function(){
   beforeEach(function(done){
     User.remove(function(){
       var user = new User({email:'bob@aol.com', password:'123'});
-      user.save(done);
+      User.register(user,done);
     });
 
   });
   describe('.register', function(){
     it('should register a user', function(done){
       User.register({email:'sam@aol.com',password:'123'}, function(err, user) {
+
         expect(err).to.not.be.ok;
         expect(user.email).to.equal('sam@aol.com');
         expect(user.password).to.have.length(60);
@@ -41,12 +43,41 @@ describe('User', function(){
   });
 
   describe('.authenticate',function(){
-    it('should auntenticate a user', function(done){
-      User.authenticate({email:'sam@aol.com', password:'123'}, function(err, user){
+    it('should authenticate a user', function(done) {
+      User.authenticate({email: 'bob@aol.com', password: '123'}, function(err, user) {
         expect(err).to.not.be.ok;
-        expect(user.email).to.equal('sam@aol.com');
-        expect(user.password).to.equal('123');
+        expect(user.email).to.equal('bob@aol.com');
         expect(user).to.be.ok;
+        done();
+      });
+    });
+
+  });
+
+  it('should NOT authenticate a user - bad email', function(done) {
+    User.authenticate({email:'bad@aol.com', password:'123'}, function(err, user){
+
+      expect(err).to.be.ok;
+      expect(user).to.not.be.ok;
+      done();
+    });
+
+  });
+
+
+
+
+
+  describe('.authenticate',function(){
+    it('should auntenticate a user is empty', function(done){
+      User.authenticate({email:'', password:''}, function(err, user){
+        expect(err).to.be.ok;
+        //expect(user.email).to.equal('');
+        //expect(user.password).to.equal('');
+        //expect(user.password).to.have.length(0);
+        //  expect(user.createdAt).to.be.instanceof(Date);
+        //expect(user.password).to.equal('123');
+        expect(user).to.not.be.ok;
         done();
       });
 

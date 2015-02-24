@@ -20,16 +20,24 @@ userSchema.statics.register = function(o, cb) {
     user.save(cb);
   });
 };
-
-userSchema.statics.authenticate = function(o, cb) {
-  User.findOne({email:o.email}, function(err, user) {
-    // if (err) { return cb(true, user); }
-
-    if (user.email !== o.email) { return cb(true); }
-    if (user.password !== o.password) { return cb(true); }
-    return cb(false, user);
+userSchema.statics.authenticate = function(user, cb) {
+  User.findOne({email: user.email}, function(err, dbuser) {
+    if (!dbuser) { return cb(true); }
+    var isGood = bcrypt.compareSync(user.password, dbuser.password);
+    if (!isGood) { return cb(true); }
+    cb(null, dbuser);
   });
 };
+// userSchema.statics.authenticate = function(o, cb) {
+//   User.findOne({email:o.email}, function(err, user) {
+//     if (err) { return cb(true, user); }
+//     user.password = bcrypt.hashSync(o.password,8);
+//     if (user.email !== o.email) { return cb(true); }
+//     if (user.password !== o.password) { return cb(true); }
+//
+//     return cb(false, user);
+//   });
+// };
 
 User = mongoose.model('User', userSchema);
 module.exports = User;

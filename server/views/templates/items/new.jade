@@ -1,0 +1,20 @@
+extends ../../layouts/master
+block content
+  h1 New Item
+  
+  
+  
+  forms(method='post', action='/items')
+    label(for='title') Title
+    input#title.form-control(type='text', name='title', autofocus=true)
+    label(for='due') Due
+    input#due.form-control(type='date', name='due')
+    label(for='tags') Tags
+    input#tags.form-control(type='text', name='tags')
+    label(for='priority') Priority
+    select#due.form-control
+      option(value="High")
+      option(value="Medium")
+      option(value="Low")
+        
+    

@@ -25,6 +25,9 @@ userSchema.statics.authenticate = function(user, cb) {
     if (!dbuser) { return cb(true); }
     var isGood = bcrypt.compareSync(user.password, dbuser.password);
     if (!isGood) { return cb(true); }
+    console.log();
+    console.log(dbuser);
+    console.log();
     cb(null, dbuser);
   });
 };

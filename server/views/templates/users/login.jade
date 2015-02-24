@@ -9,7 +9,7 @@ block content
 
   .row
     .col-xs-4
-      form(method='post', action='/users')
+      form(method='post', action='/users/authenticate')
         .form-group
           label(for='email') Email
           input#email.form-control(type='email', name='email', autofocus=true)

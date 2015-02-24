@@ -11,16 +11,16 @@ var beforeEach = lab.beforeEach;
 
 var server = require('../../server/index');
 
-describe('User', function(){
-  beforeEach(function(done){
-    User.remove(function(){
+describe('User', function() {
+  beforeEach(function(done) {
+    User.remove(function() {
       var user = new User({email:'bob@aol.com', password:'123'});
       User.register(user,done);
     });
 
   });
-  describe('.register', function(){
-    it('should register a user', function(done){
+  describe('.register', function() {
+    it('should register a user', function(done) {
       User.register({email:'sam@aol.com',password:'123'}, function(err, user) {
 
         expect(err).to.not.be.ok;
@@ -33,7 +33,7 @@ describe('User', function(){
       });
     });
 
-    it('should NOT register a user - duplicate email', function(done){
+    it('should NOT register a user - duplicate email', function(done) {
       User.register({email:'bob@aol.com',password:'123'}, function(err, user) {
         expect(err).to.be.ok;
         expect(user).to.not.be.ok;
@@ -42,7 +42,7 @@ describe('User', function(){
     });
   });
 
-  describe('.authenticate',function(){
+  describe('.authenticate', function() {
     it('should authenticate a user', function(done) {
       User.authenticate({email: 'bob@aol.com', password: '123'}, function(err, user) {
         expect(err).to.not.be.ok;
@@ -55,7 +55,7 @@ describe('User', function(){
   });
 
   it('should NOT authenticate a user - bad email', function(done) {
-    User.authenticate({email:'bad@aol.com', password:'123'}, function(err, user){
+    User.authenticate({email:'bad@aol.com', password:'123'}, function(err, user) {
 
       expect(err).to.be.ok;
       expect(user).to.not.be.ok;
@@ -68,9 +68,9 @@ describe('User', function(){
 
 
 
-  describe('.authenticate',function(){
-    it('should auntenticate a user is empty', function(done){
-      User.authenticate({email:'', password:''}, function(err, user){
+  describe('.authenticate', function() {
+    it('should auntenticate a user is empty', function(done) {
+      User.authenticate({email:'', password:''}, function(err, user) {
         expect(err).to.be.ok;
         //expect(user.email).to.equal('');
         //expect(user.password).to.equal('');
@@ -84,14 +84,3 @@ describe('User', function(){
     });
   });
 });
-// describe('User', function(){
-//   beforeEach(function(done){
-//     User.remove(function(){
-//       var user = new User({email:'sam@aol.com', password:'123'});
-//       user.save(done);
-//     });
-//   });
-
-
-
-// });

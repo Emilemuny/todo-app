@@ -12,16 +12,16 @@ var server = require('../../server/index');
 
 
 
-describe('users route', function(){
-  beforeEach(function(done){
-    User.remove(function(){
+describe('users route', function() {
+  beforeEach(function(done) {
+    User.remove(function() {
       User.register({email:'bob@aol.com', password:'123'}, done);
     });
 
   });
 
   describe('get /register' , function() {
-   it('should display the registration page', function(done){
+   it('should display the registration page', function(done) {
      var options = {method:'get', url:'/register'};
      server.inject(options, function(response) {
        expect(response.statusCode).to.equal(200);
@@ -33,7 +33,7 @@ describe('users route', function(){
   });
 
   describe('get /users' , function() {
-    it('should create a new user', function(done){
+    it('should create a new user', function(done) {
       var options = {
         method:'post',
         url:'/users',
@@ -53,7 +53,7 @@ describe('users route', function(){
      });
   });
 
-  it('should NOT create a new user - duplicate email', function(done){
+  it('should NOT create a new user - duplicate email', function(done) {
     var options = {
       method:'post',
       url:'/users',
@@ -62,12 +62,12 @@ describe('users route', function(){
         password:'123'
       }
     };
-    server.inject(options, function(response){
+    server.inject(options, function(response) {
       expect(response.statusCode).to.equal(302);
       done();
     });
   });
-  it('should NOT create a new user - empty email', function(done){
+  it('should NOT create a new user - empty email', function(done) {
     var options = {
       method:'post',
       url:'/users',
@@ -76,12 +76,12 @@ describe('users route', function(){
         password:'123'
       }
     };
-    server.inject(options, function(response){
+    server.inject(options, function(response) {
       expect(response.statusCode).to.equal(400);
       done();
     });
   });
-  it('should NOT create a new user - empty password', function(done){
+  it('should NOT create a new user - empty password', function(done) {
     var options = {
       method: 'post',
       url:'/users',
@@ -90,7 +90,7 @@ describe('users route', function(){
         password: ''
       }
     };
-    server.inject(options, function(response){
+    server.inject(options, function(response) {
       expect(response.statusCode).to.equal(400);
       done();
     });
@@ -99,14 +99,3 @@ describe('users route', function(){
   });
 
 });
-// describe('User', function(){
-//   beforeEach(function(done){
-//     User.remove(function(){
-//       var user = new User({email:'sam@aol.com', password:'123'});
-//       user.save(done);
-//     });
-//   });
-
-
-
-// });

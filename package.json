@@ -26,7 +26,7 @@
     "localstart": "MONGO_URL=mongodb://localhost/todo-app PORT=3333 nodemon -e js,jade server/index.js",
     "clean": "rm -rf node_modules && rm -rf public && npm install && bower install && gulp build",
     "postinstall": "bower install && gulp build",
-    "test":"MONGO_URL=mongodb://localhost/todo-test lab -v -m 5000 test/unit/ test/acceptance"
+    "test": "MONGO_URL=mongodb://localhost/todo-test lab -v -m 5000 test/unit/ test/acceptance"
   },
   "license": "MIT",
   "dependencies": {
@@ -34,6 +34,7 @@
     "good": "^5.1.1",
     "good-console": "^4.1.0",
     "hapi": "^8.2.0",
+    "hapi-auth-cookie": "^2.0.0",
     "jade": "^1.9.2",
     "joi": "^5.1.0",
     "lodash": "^3.2.0",

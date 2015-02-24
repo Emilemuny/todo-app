@@ -24,6 +24,7 @@ userSchema.statics.register = function(o, cb) {
 userSchema.statics.authenticate = function(o, cb) {
   User.findOne({email:o.email}, function(err, user) {
     // if (err) { return cb(true, user); }
+
     if (user.email !== o.email) { return cb(true); }
     if (user.password !== o.password) { return cb(true); }
     return cb(false, user);

@@ -2,6 +2,7 @@
 
 var expect = require('chai').expect;
 var User = require('../../server/models/user');
+var Item = require('../../server/models/item');
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
 var Joi = require('joi');
@@ -64,10 +65,6 @@ describe('User', function() {
 
   });
 
-
-
-
-
   describe('.authenticate', function() {
     it('should auntenticate a user is empty', function(done) {
       User.authenticate({email:'', password:''}, function(err, user) {
@@ -83,4 +80,27 @@ describe('User', function() {
 
     });
   });
+  describe('.createItem', function() {
+    it('should create a new Item', function(done) {
+      Item.createItem({title:'thetitle', dueDate: Date(), tags: 'dinosaurs,apps', priority:'High'}, function(err, item) {
+        expect(err).to.not.be.ok;
+        expect(item.title).to.equal('thetitle');
+        expect(item.dueDate).to.be.instanceof(Date);
+        expect(item.tags).to.be.instanceof(Array);
+        expect(item.priority).to.equal('High');
+        done();
+      });
+    });
+    it('should NOT create a new Item - empty title', function(done) {
+      Item.createItem({title:'', tags:'dinosaurs,apps', priority:'High'}, function(err, item) {
+        expect(err).to.be.ok;
+        expect(item).to.not.be.ok;
+        // expect(item.title).to.equal('');
+
+        done();
+      });
+    });
+  });
+
+
 });

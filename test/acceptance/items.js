@@ -26,7 +26,7 @@ describe('items', function() {
         };
         server.inject(options, function(response){
           cookie = response.headers['set-cookie'][0].match(/project-cookie=[^;]+/)[0];
-          console.log(cookie);
+          // console.log(cookie);
           done();
         });
       });

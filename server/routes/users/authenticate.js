@@ -16,9 +16,8 @@ module.exports = {
       if (err) {
         reply.redirect('/login');
       } else {
-        console.log('********');
-        console.log(request.auth)
         request.auth.session.set(user);
+        // console.log(request.auth);
         reply.redirect('/');
       }
     });

@@ -8,15 +8,21 @@ var describe = lab.describe;
 var it = lab.it;
 var beforeEach = lab.beforeEach;
 var server = require('../../server/index');
+var cp = require('child_process');
+var dbname = process.env.MONGO_URL.split('/')[3];
 
 
 
 
-describe('users route', function() {
+
+
+describe('users', function() {
   beforeEach(function(done) {
-    User.remove(function() {
-      User.register({email:'bob@aol.com', password:'123'}, done);
+    cp.execFile(__dirname + '/../scripts/clean-db.sh', [dbname], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
+      console.log(err, stdout, stderr);
+      done();
     });
+
 
   });
 

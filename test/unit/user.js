@@ -9,14 +9,16 @@ var Joi = require('joi');
 var describe = lab.describe;
 var it = lab.it;
 var beforeEach = lab.beforeEach;
-
+var bob;
 var server = require('../../server/index');
 
 describe('User', function() {
   beforeEach(function(done) {
     User.remove(function() {
-      var user = new User({email:'bob@aol.com', password:'123'});
-      User.register(user,done);
+      User.register({email:'bob@aol.com', password:'123'}, function(err, user){
+        bob = user;
+        done();
+      });
     });
 
   });
@@ -80,27 +82,7 @@ describe('User', function() {
 
     });
   });
-  describe('.createItem', function() {
-    it('should create a new Item', function(done) {
-      Item.createItem({title:'thetitle', dueDate: Date(), tags: 'dinosaurs,apps', priority:'High'}, function(err, item) {
-        expect(err).to.not.be.ok;
-        expect(item.title).to.equal('thetitle');
-        expect(item.dueDate).to.be.instanceof(Date);
-        expect(item.tags).to.be.instanceof(Array);
-        expect(item.priority).to.equal('High');
-        done();
-      });
-    });
-    it('should NOT create a new Item - empty title', function(done) {
-      Item.createItem({title:'', tags:'dinosaurs,apps', priority:'High'}, function(err, item) {
-        expect(err).to.be.ok;
-        expect(item).to.not.be.ok;
-        // expect(item.title).to.equal('');
 
-        done();
-      });
-    });
-  });
 
 
 });

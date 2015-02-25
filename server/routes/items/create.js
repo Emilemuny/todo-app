@@ -13,12 +13,10 @@ module.exports = {
     }
   },
   handler: function(request, reply) {
-    Item.createItem(request.payload, function(err, item) {
-      if (err) {
-        reply.redirect('/items/new');
-      } else {
-        reply.redirect('/items');
-      }
+    request.payload.userId = request.auth.credentials._id;
+    var item = new Item(request.payload);
+    item.save(function() {
+      reply.redirect('/items');
     });
   }
-}
+};

@@ -1,0 +1,13 @@
+{
+  "_id" : {"$oid":"000000000000000000000001"},
+  "email" : "a@aol.com",
+  "password" : "$2a$08$WVEeyGf644r1Xxqlu.UoA.cJGMzEQqV/1j3TtwVVEeCG6hkwxueuC",
+  "createdAt" : {"$date":1424828124238}
+}
+
+{
+  "_id" : {"$oid":"000000000000000000000002"},
+  "email" : "b@aol.com",
+  "password" : "$2a$08$WVEeyGf644r1Xxqlu.UoA.cJGMzEQqV/1j3TtwVVEeCG6hkwxueuC",
+  "createdAt" : {"$date":1424828124238}
+}

@@ -5,11 +5,7 @@
   "due" : {"$date":1424828111020},
   "priority" : "low",
   "userId" : {"$oid":"000000000000000000000001"},
-    "tags" : [
-        "tag1",
-        "tag2",
-        "tag3"
-    ],
+    "tags" : "html,css3,bookstrap",
     "isComplete" : false,
     "createdAt" : {"$date":1424828111020}
 }
@@ -20,9 +16,161 @@
   "priority" : "medium",
   "userId" : {"$oid":"000000000000000000000002"},
     "tags" : [
-        "tag1",
-        "tag3"
+      "cooking",
+      "repairs",
+      "cleaning"
     ],
     "isComplete" : true,
     "createdAt" : {"$date":1424828111020}
+}
+
+{
+  "_id" : {"$oid":"0000000000000000000000a3"},
+  "title" : "b",
+  "due" : {"$date":1424828111020},
+  "priority" : "medium",
+  "userId" : {"$oid":"000000000000000000000003"},
+    "tags" : [
+        "javascript",
+         "node",
+         "jade"
+
+    ],
+    "isComplete" : true,
+    "createdAt" : {"$date":1424828111020}
+}
+
+{
+  "_id" : {"$oid":"0000000000000000000000a4"},
+  "title" : "a",
+  "due" : {"$date":1424828111020},
+  "priority" : "low",
+  "userId" : {"$oid":"000000000000000000000004"},
+    "tags" : [
+      "html",
+      "css3",
+      "bootstrap"
+    ],
+    "isComplete" : false,
+    "createdAt" : {"$date":1424892082073}
+}
+{
+  "_id" : {"$oid":"0000000000000000000000a5"},
+  "title" : "b",
+  "due" : {"$date":1424828111020},
+  "priority" : "medium",
+  "userId" : {"$oid":"000000000000000000000005"},
+    "tags" : [
+      "cooking",
+      "repairs",
+      "cleaning"
+    ],
+    "isComplete" : true,
+    "createdAt" : {"$date":1424892082073}
+}
+
+{
+  "_id" : {"$oid":"0000000000000000000000a6"},
+  "title" : "a",
+  "due" : {"$date":1424828111020},
+  "priority" : "medium",
+  "userId" : {"$oid":"000000000000000000000006"},
+    "tags" : [
+        "javascript",
+        "node",
+        "jade"
+
+    ],
+    "isComplete" : true,
+    "createdAt" : {"$date":1424892082073}
+}
+
+{
+  "_id" : {"$oid":"0000000000000000000000a7"},
+  "title" : "a",
+  "due" : {"$date":1424828111020},
+  "priority" : "low",
+  "userId" : {"$oid":"000000000000000000000007"},
+    "tags" : [
+      "html",
+      "css3",
+      "bookstrap"
+    ],
+    "isComplete" : false,
+    "createdAt" : {"$date":1424828111020}
+}
+{
+  "_id" : {"$oid":"0000000000000000000000a8"},
+  "title" : "b",
+  "due" : {"$date":1424828111020},
+  "priority" : "medium",
+  "userId" : {"$oid":"000000000000000000000008"},
+    "tags" : [
+      "cooking",
+      "repairs",
+      "cleaning"
+    ],
+    "isComplete" : true,
+    "createdAt" : {"$date":1424828111020}
+}
+
+{
+  "_id" : {"$oid":"0000000000000000000000a9"},
+  "title" : "b",
+  "due" : {"$date":1424828111020},
+  "priority" : "medium",
+  "userId" : {"$oid":"000000000000000000000009"},
+    "tags" : [
+        "javascript",
+         "node",
+         "jade"
+
+    ],
+    "isComplete" : true,
+    "createdAt" : {"$date":1424828111020}
+}
+
+{
+  "_id" : {"$oid":"0000000000000000000000b1"},
+  "title" : "a",
+  "due" : {"$date":1424828111020},
+  "priority" : "low",
+  "userId" : {"$oid":"000000000000000000000010"},
+    "tags" : [
+      "html",
+      "css3",
+      "bootstrap"
+    ],
+    "isComplete" : false,
+    "createdAt" : {"$date":1424892082073}
+}
+{
+  "_id" : {"$oid":"0000000000000000000000b2"},
+  "title" : "b",
+  "due" : {"$date":1424828111020},
+  "priority" : "medium",
+  "userId" : {"$oid":"000000000000000000000011"},
+    "tags" : [
+      "cooking",
+      "repairs",
+      "cleaning"
+    ],
+    "isComplete" : true,
+    "createdAt" : {"$date":1424892082073}
+}
+
+{
+  "_id" : {"$oid":"0000000000000000000000b3"},
+  "title" : "a",
+  "due" : {"$date":1424828111020},
+  "priority" : "medium",
+  "userId" : {"$oid":"000000000000000000000012"},
+    "tags" : [
+        "javascript",
+        "node",
+        "jade"
+
+    ],
+    "isComplete" : true,
+    "createdAt" : {"$date":1424892082073}
 }

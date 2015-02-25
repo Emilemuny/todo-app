@@ -4,15 +4,15 @@ block content
   
   
   
-  forms(method='post', action='/items')
+  form(method='post', action='/items')
     label(for='title') Title
     input#title.form-control(type='text', name='title', autofocus=true)
     label(for='due') Due
-    input#due.form-control(type='date', name='due')
+    input#dueDate.form-control(type='date', name='dueDate')
     label(for='tags') Tags
     input#tags.form-control(type='text', name='tags')
     label(for='priority') Priority
-    select#due.form-control
+    select#priority.form-control(name="priority")
       option(value="High") High
       option(value="Medium") Medium
       option(value="Low") Low

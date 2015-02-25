@@ -15,19 +15,11 @@ var itemSchema = mongoose.Schema({
 
 
 itemSchema.pre('save', function(next) {
+  if(this.isNew) {}
   this.tags = this.tags[0].split(',').map(function(s) {return s.trim().toLowerCase();});
+  }
+
   next();
 });
 
 module.exports = mongoose.model('Item', itemSchema);
-
-// itemSchema.statics.createItem = function(payload, cb) {
-//
-//   payload.tags = payload.tags.split(",");
-//   var item = new Item(payload);
-//   item.save(cb);
-// }
-
-
-// Item = mongoose.model('Item', itemSchema);
-// module.exports = Item;

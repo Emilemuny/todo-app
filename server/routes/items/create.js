@@ -14,6 +14,8 @@ module.exports = {
   },
   handler: function(request, reply) {
     request.payload.userId = request.auth.credentials._id;
+    console.log("**************");
+    console.log(request.payload.userId);
     var item = new Item(request.payload);
     item.save(function() {
       reply.redirect('/items');

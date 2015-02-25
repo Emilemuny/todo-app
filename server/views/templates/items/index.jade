@@ -1,0 +1,18 @@
+extends ../../layouts/master
+block content
+  h1 List
+  form(method='get' action='/items')
+    select#filter.form-control(name="filter")
+      option(value="tags") Tags
+      option(value="priority") Priority
+      option(value="isCompleted") Completed Tasks
+    label(for='title') Tags
+    input#tags.form-control(type='text', name='value', placeholder="Filter Value")
+    button(type="submit") Filter
+  ul
+    each item in items
+      li= item.title
+      
+      
+      
+      

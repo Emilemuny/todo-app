@@ -9,5 +9,5 @@ module.exports = [
 
   {method: 'post', path: '/users/authenticate', config: require('../routes/users/authenticate')},
   {method: 'get', path: '/items/new', config: require('../routes/items/new')},
-  {method: 'post', path: '/items', config: require('../routes/users/login')},
+  {method: 'post', path: '/items/{itemId}', config: require('../routes/items/update')}
 ];

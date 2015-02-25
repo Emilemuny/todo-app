@@ -60,39 +60,23 @@ describe('items', function() {
      });
    });
   });
-  describe('get /items/id', function() {
-  
+  describe('post /items/3', function() {
+
     it('should display update item page', function(done) {
       console.log("***************");
       console.log(item);
       var options = {
         method: 'post',
-        url:'/items/'+item._id,
+        url:'/items/0000000000000000000000a1',
         headers: {
           cookie: cookie
         }
       };
       server.inject(options, function(response) {
-        expect(response.statusCode).to.equal(200);
-        expect(response.payload).to.include('Update');
+        console.log('options', options);
+        expect(response.statusCode).to.equal(302);
         done();
       });
     })
   });
 });
-    // describe('get /items/'+bob._id+'/completed', function() {
-    //   it('should display update item page', function(done) {
-    //     var options = {
-    //       method: 'get',
-    //       url:'/items/'+bob._id,
-    //       headers: {
-    //         cookie: cookie
-    //       }
-    //     };
-    //     server.inject(options, function(response) {
-    //       expect(response.statusCode).to.equal(200);
-    //       expect(response.payload).to.include('Update');
-    //       done();
-    //     });
-    //   })
-    // });

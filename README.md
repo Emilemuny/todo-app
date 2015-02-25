@@ -1,2 +1,2 @@
-# hapi-prototype
+
 # todo-app

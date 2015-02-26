@@ -17,8 +17,6 @@ var itemSchema = mongoose.Schema({
 itemSchema.pre('save', function(next) {
   if(this.isNew) {}
   this.tags = this.tags[0].split(',').map(function(s) {return s.trim().toLowerCase();});
-  }
-
   next();
 });
 

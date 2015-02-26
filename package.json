@@ -26,8 +26,7 @@
     "localstart": "MONGO_URL=mongodb://localhost/todo-app PORT=3333 nodemon -e js,jade server/index.js",
     "clean": "rm -rf node_modules && rm -rf public && npm install && bower install && gulp build",
     "postinstall": "bower install && gulp build",
-    "test": "MONGO_URL=mongodb://localhost/todo-test lab -v -m 5000 test/unit/ test/acceptance",
-    "testFilter": "MONGO_URL=mongodb://localhost/todo-test lab -v -m 5000 test/acceptance/filter.js"
+    "test": "MONGO_URL=mongodb://localhost/todo-test lab -v -m 5000 test/unit/ test/acceptance"
   },
   "license": "MIT",
   "dependencies": {

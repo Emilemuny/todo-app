@@ -79,4 +79,52 @@ describe('items', function() {
       });
     })
   });
+
+  describe('get /items', function() {
+    it('should display all the items', function(done) {
+      var options = {
+        method: "get",
+        url: "/items",
+        headers: {
+          cookie: cookie
+        }
+      };
+      Item.find({}, function(err, items) {
+        expect(items).to.be.ok;
+
+
+        // console.log("items:",items);
+        server.inject(options, function(response) {
+          expect(response.statusCode).to.equal(200);
+          done();
+        });
+      });
+    });
+
+    it('should filter by one tag', function(done) {
+      var options = {
+        method: "get",
+        url: "/items?filter=tags&value=html",
+        headers: {
+          cookie: cookie
+        },
+      };
+      Item.find({tags:"html"}, function(err, items) {
+        expect(items).to.be.ok;
+
+        // console.log("items:",items);
+        server.inject(options, function(response) {
+          expect(response.statusCode).to.equal(200);
+
+          done();
+        });
+      });
+    });
+
+  });
+
+
+
+
+
 });
